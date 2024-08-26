@@ -4,12 +4,11 @@ int nCr(int n, int r) {
     unsigned long long u = 1, d = 1, g;
     if (r > n - r) r = n - r;
     while (r) {
-        u *= n;
-        d *= r;
+        u *= n--;
+        d *= r--;
         g = __gcd(u, d);
         u /= g;
         d /= g;
-        n--, r--;
     }
     return u / d;
 }
