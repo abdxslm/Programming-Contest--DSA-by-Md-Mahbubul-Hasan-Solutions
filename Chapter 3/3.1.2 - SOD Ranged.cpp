@@ -5,7 +5,7 @@ using namespace std;
 vector<int> primes;
 vector<bool> isPrime(N + 1, true);
 pair<int, map<int, int>> primeFactors[N + 1];
-vector<int> nod(N + 1, 1);
+vector<int> sod(N + 1, 1);
 void sieve() {
     isPrime[0] = false;
     isPrime[1] - false;
@@ -32,7 +32,7 @@ void SOD() {
     int i = 0;
     for (auto x : primeFactors) {
         for (auto y : x.second) {
-            nod[i] *= (pow(y.first, y.second + 1) - 1) / (y.first - 1);
+            sod[i] *= (pow(y.first, y.second + 1) - 1) / (y.first - 1);
         }
         i++;
     }
@@ -42,7 +42,7 @@ int main() {
     primeFactorization();
     SOD();
     int i = 0;
-    for (auto x : nod) {
+    for (auto x : sod) {
         cout << "SOD(" << i++ << ") = " << x << endl;
     }
     return 0;
